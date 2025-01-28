@@ -6,13 +6,14 @@ function drum(){
    
     var cases= this.innerHTML;
      makeSound(cases);
+     buttonAnimation(cases);
   
     }
 }
 //keyboard
 document.addEventListener("keypress",function(event){
      makeSound(event.key);
-
+     buttonAnimation(event.key);
 });
 
 
@@ -52,4 +53,10 @@ function makeSound(key){
 
 }
 
-
+function buttonAnimation(currentKey){
+ var play=  document.querySelector("." + currentKey);
+ play.classList.add("pressed");
+ setTimeout(function(){
+    play.classList.remove("pressed");
+ },100);
+}
